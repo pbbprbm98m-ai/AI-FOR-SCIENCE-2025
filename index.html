@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI for Science 2025｜中文网页报告</title>
+  <style>
+    :root{
+      --bg:#f6f8fb;--ink:#102033;--muted:#607086;--line:#dfe7f0;--card:#ffffff;
+      --blue:#2367f5;--blue2:#0b2d68;--cyan:#0ea5e9;--green:#10b981;--amber:#f59e0b;--red:#ef4444;
+      --shadow:0 16px 45px rgba(13,31,62,.10);--radius:22px;
+    }
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;color:var(--ink);background:radial-gradient(circle at top left,#e8f0ff 0,#f7f9fd 34%,#f6f8fb 70%);line-height:1.7}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+    .hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(135deg,#081327 0%,#103a8a 46%,#0ea5e9 100%);padding:72px 0 54px;border-bottom-left-radius:40px;border-bottom-right-radius:40px;box-shadow:var(--shadow)}
+    .hero:before{content:"";position:absolute;inset:-100px -80px auto auto;width:520px;height:520px;border-radius:50%;background:rgba(255,255,255,.13);filter:blur(4px)}
+    .hero:after{content:"";position:absolute;left:-160px;bottom:-220px;width:500px;height:500px;border-radius:50%;background:rgba(16,185,129,.14);filter:blur(2px)}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;border:1px solid rgba(255,255,255,.32);border-radius:999px;padding:6px 12px;background:rgba(255,255,255,.12);backdrop-filter:blur(8px);font-weight:650;letter-spacing:.02em}
+    h1{font-size:clamp(34px,6vw,68px);line-height:1.05;margin:22px 0 18px;letter-spacing:-.04em}
+    .subtitle{max-width:820px;font-size:clamp(16px,2vw,21px);color:#dbeafe;margin:0 0 28px}
+    .hero-grid{display:grid;grid-template-columns:1.4fr .8fr;gap:28px;align-items:stretch;margin-top:32px}
+    .hero-card{position:relative;background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.24);border-radius:var(--radius);padding:24px;backdrop-filter:blur(10px)}
+    .hero-card strong{font-size:38px;line-height:1;display:block;margin-bottom:6px}
+    .tags{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.tag{background:#fff;color:#0b2d68;border-radius:999px;padding:7px 12px;font-weight:700;font-size:13px}
+    .toc{position:sticky;top:0;z-index:30;background:rgba(246,248,251,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .toc .wrap{display:flex;gap:10px;overflow:auto;padding-top:10px;padding-bottom:10px}.toc a{white-space:nowrap;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 12px;color:#35516f;font-size:14px;font-weight:650}.toc a:hover{border-color:#8bb7ff;color:#0b55d9}
+    main{padding:34px 0 80px}.section{margin:36px 0}.section-title{display:flex;gap:14px;align-items:end;margin:0 0 18px}.kicker{color:var(--blue);font-weight:800;text-transform:uppercase;letter-spacing:.08em;font-size:12px}.section h2{font-size:clamp(26px,3.5vw,42px);line-height:1.16;margin:0;letter-spacing:-.03em}.lead{font-size:18px;color:#3d4d61;max-width:980px;margin:0 0 20px}
+    .grid{display:grid;gap:18px}.grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}.grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr))}.grid.cols-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:0 8px 28px rgba(13,31,62,.06)}
+    .card h3{font-size:20px;margin:0 0 10px;line-height:1.35}.card p{margin:0;color:#4a5d74}.card ul{margin:10px 0 0;padding-left:20px;color:#4a5d74}.card li{margin:6px 0}.num{font-size:36px;font-weight:900;color:var(--blue);letter-spacing:-.04em;line-height:1}.caption{font-size:13px;color:var(--muted);margin-top:6px}.pill{display:inline-flex;padding:3px 9px;border-radius:999px;background:#eaf1ff;color:#1557d8;font-weight:800;font-size:12px;margin-bottom:10px}.pill.green{background:#e8fff7;color:#047857}.pill.amber{background:#fff7e6;color:#a16207}.pill.red{background:#fff0f0;color:#b91c1c}
+    .highlight{border-radius:26px;padding:26px;background:linear-gradient(135deg,#eef5ff,#ffffff);border:1px solid #cfe0ff;box-shadow:var(--shadow)}.highlight h3{margin-top:0}.quote{border-left:5px solid var(--blue);padding:14px 18px;background:#f0f6ff;border-radius:14px;color:#25405f;font-weight:650}
+    table{width:100%;border-collapse:separate;border-spacing:0;background:#fff;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 8px 28px rgba(13,31,62,.05)}th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{background:#f1f5fb;color:#24405d;font-weight:850}tr:last-child td{border-bottom:0}td{color:#3b4f66}.small{font-size:13px;color:var(--muted)}
+    .chapter{background:#fff;border:1px solid var(--line);border-radius:30px;overflow:hidden;box-shadow:var(--shadow);margin:28px 0}.chapter-head{padding:28px;background:linear-gradient(135deg,#0b2d68,#2367f5);color:#fff}.chapter-head h2{margin:0;font-size:34px}.chapter-head p{margin:8px 0 0;color:#dbeafe}.chapter-body{padding:26px}.chapter-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.mini-title{font-weight:900;color:#0b2d68;margin:0 0 8px}.note{background:#fffbea;border:1px solid #fde68a;border-radius:18px;padding:16px;color:#713f12}.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.flow div{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center;font-weight:800}.flow span{display:block;color:var(--muted);font-weight:600;font-size:13px;margin-top:4px}.badge-row{display:flex;flex-wrap:wrap;gap:8px}.badge{padding:6px 10px;border-radius:999px;background:#eef2f7;color:#334155;font-weight:700;font-size:13px}.footer{border-top:1px solid var(--line);padding:28px 0;color:#607086;background:#fff}
+    @media (max-width:900px){.hero-grid,.grid.cols-2,.grid.cols-3,.grid.cols-4,.chapter-grid,.flow{grid-template-columns:1fr}.hero{border-radius:0 0 28px 28px}.chapter-head h2{font-size:28px}}
+    @media print{.toc{display:none}.hero{border-radius:0}.card,.chapter,.highlight{box-shadow:none}body{background:#fff}.wrap{max-width:none}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">AI FOR SCIENCE 2025｜中文网页报告</span>
+      <h1>科学智能正在重塑<br/>科研范式与全球创新格局</h1>
+      <p class="subtitle">本网页基于英文报告《AI FOR SCIENCE 2025》进行中文翻译与结构化整理，保留原报告的核心逻辑、关键数据、趋势判断和政策建议，并以适合商业与学术汇报的网页形式呈现。</p>
+      <div class="tags">
+        <span class="tag">科学发现自动化</span><span class="tag">跨尺度建模</span><span class="tag">大模型与智能体</span><span class="tag">科研政策框架</span>
+      </div>
+      <div class="hero-grid">
+        <div class="hero-card">
+          <strong>摘要</strong>
+          <p>AI for Science（AI4S）代表人工智能创新与科学发现的深度融合。它不再只是科研工具的增强，而是逐步成为重塑科学研究流程的“元技术”：从数据生成、假设提出、实验设计、自动化验证，到跨学科知识整合，AI正在推动科学研究从经验、理论、计算和数据密集型范式，迈向模型驱动、闭环迭代和自主发现的新范式。</p>
+        </div>
+        <div class="hero-card">
+          <strong>2015–2024</strong>
+          <p>报告基于 Nature Research Intelligence 与 Nature Index 相关数据，对全球 AI 与 AI4S 研究论文、引用、国家/地区格局和核心技术方法进行了系统分析。</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="toc">
+    <div class="wrap">
+      <a href="#summary">核心结论</a><a href="#paradigm">研究范式</a><a href="#data">数据洞察</a><a href="#core">核心AI</a><a href="#math">数学</a><a href="#physical">物理科学</a><a href="#life">生命科学</a><a href="#earth">地球环境</a><a href="#engineering">工程</a><a href="#hss">人文社科</a><a href="#policy">展望政策</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="summary" class="section">
+      <div class="section-title"><div><div class="kicker">Executive takeaways</div><h2>核心结论与重点数据</h2></div></div>
+      <p class="lead">报告认为，AI4S 的突破体现在两个层面：一是全球 AI 研究规模持续扩张，二是科学研究范式发生结构性迁移，AI 正从“辅助工具”变为科学发现的“组织方式”。</p>
+      <div class="grid cols-3">
+        <div class="card"><div class="num">954.5k</div><h3>全球 AI 论文近十年接近三倍增长</h3><p>2015 年全球 AI 与 AI4S 论文约 30.89 万篇，2024 年增至 95.45 万篇，年均增速约 13.7%。2020 年是关键拐点，之后年增长率由约 10.9% 升至 16%。</p></div>
+        <div class="card"><div class="num">+6.4pct</div><h3>AI4S 份额明显上升</h3><p>核心 AI 论文占比从 44.5% 降至 38.0%，AI4S 份额上升 6.4 个百分点。工程和生命科学是增长最突出的 AI4S 方向。</p></div>
+        <div class="card"><div class="num">28.7%</div><h3>中国成为论文规模领导者</h3><p>中国 AI 论文从 2015 年的 6.01 万篇增至 2024 年的 27.39 万篇，占全球 28.7%；2018 年超过欧盟，2022 年产出超过欧盟与美国合计。</p></div>
+        <div class="card"><div class="num">42.9%</div><h3>美国仍在高影响力研究上领先</h3><p>以 Nature Index 期刊 AI 论文引用衡量，2024 年美国占全球引用约 42.9%，中国约 40.2%，两者差距快速缩小。</p></div>
+        <div class="card"><div class="num">41.6%</div><h3>中国在应用创新引用中领先</h3><p>在专利、政策文件与临床试验中引用 AI 论文的指标上，中国 2024 年占全球 41.6%，显示其从追随者转向应用创新引领者。</p></div>
+        <div class="card"><div class="num">133k</div><h3>国际合作持续增长</h3><p>国际合著 AI 论文从 2015 年 4.72 万篇增至 2024 年 13.3 万篇；AI4S 国际合著从 2.99 万篇增至 9.48 万篇，均接近三倍增长。</p></div>
+      </div>
+    </section>
+
+    <section id="paradigm" class="section">
+      <div class="section-title"><div><div class="kicker">Research paradigm</div><h2>AI4S 的定义与科研范式变化</h2></div></div>
+      <div class="highlight">
+        <h3>中文摘要：AI4S 是科学研究中的人工智能创新与 AI 驱动科学发现的结合</h3>
+        <p>传统科学研究可分为经验归纳、理论建模、计算模拟和数据密集型科学四类范式。随着科学问题复杂度提高，单一范式在因果发现、跨尺度建模、噪声数据处理、高质量实验数据稀缺等方面遇到瓶颈。AI4S 的核心价值，是把数据驱动建模与先验科学知识结合起来，自动生成与验证假设，推动智能实验与跨学科协同。</p>
+      </div>
+      <div class="flow" style="margin-top:18px">
+        <div>经验科学<span>从观测和可重复实验归纳规律</span></div>
+        <div>理论科学<span>提出假设并通过逻辑与数学形成理论</span></div>
+        <div>计算科学<span>用数值方法模拟复杂系统</span></div>
+        <div>数据密集科学<span>从大规模数据中挖掘统计模式</span></div>
+      </div>
+      <div class="grid cols-3" style="margin-top:18px">
+        <div class="card"><span class="pill">突破方向一</span><h3>生成式 AI 补足科学数据稀缺</h3><p>在大气、天文等高质量数据稀缺领域，扩散模型与大语言模型等生成式技术可用于数据增强、样本合成和知识补全。</p></div>
+        <div class="card"><span class="pill">突破方向二</span><h3>知识引导深度学习提升可解释性</h3><p>将物理约束、守恒定律、领域机理嵌入神经网络，可形成可信度更高、泛化更强的“灰箱模型”，典型代表包括物理信息神经网络（PINNs）。</p></div>
+        <div class="card"><span class="pill">突破方向三</span><h3>自动化实验形成闭环发现</h3><p>AI 与机器人结合可自动设计实验、实时分析数据、优化参数并筛选候选方案，显著降低材料合成、聚变实验等领域的试错成本。</p></div>
+      </div>
+    </section>
+
+    <section id="data" class="section">
+      <div class="section-title"><div><div class="kicker">Data insights</div><h2>全球 AI 与 AI4S 数据洞察</h2></div></div>
+      <table>
+        <thead><tr><th>维度</th><th>原报告结论的中文整理</th><th>战略含义</th></tr></thead>
+        <tbody>
+          <tr><td>论文规模</td><td>全球 AI 论文 2015–2024 年从 30.89 万篇增至 95.45 万篇；AI4S 同期从 19.89 万篇增至 67.22 万篇。</td><td>科学智能已成为推动 AI 研究增长的重要引擎，尤其在 2020 年后加速。</td></tr>
+          <tr><td>国家格局</td><td>中国论文规模增长最快，印度追赶速度明显；美国在高影响力引用方面仍保持领先。</td><td>全球 AI4S 竞争将同时围绕“规模、质量、应用转化和国际合作”展开。</td></tr>
+          <tr><td>研究质量</td><td>Nature Index 期刊引用显示，美国仍居前列，中国快速接近；应用型引用中，中国领先。</td><td>基础研究与应用创新之间出现不同优势结构，政策和投资需区分评价指标。</td></tr>
+          <tr><td>国际合作</td><td>中美 AI 合作 2020 年达到峰值后略有下降，但仍是全球最大双边科研合作关系；中欧、中英、中加、中澳合作增强。</td><td>地缘竞争并未阻断 AI4S 国际合作，开放数据与联合平台仍具有战略价值。</td></tr>
+          <tr><td>主流技术</td><td>大语言模型、强化学习、计算机视觉、图神经网络、分布式学习、可解释 AI、边缘智能等广泛进入科学研究。</td><td>AI4S 的技术栈正在从单点算法走向跨领域、跨模态、可闭环的综合平台。</td></tr>
+        </tbody>
+      </table>
+      <div class="quote" style="margin-top:18px">重要判断：AI 已不再只是科学工具的延伸，而正在演化为重塑科学发现范式的“元技术”。</div>
+    </section>
+
+    <section id="core" class="chapter">
+      <div class="chapter-head"><h2>第二章｜核心 AI：从大语言模型到自主智能体</h2><p>Core AI：前沿模型、具身智能、脑机接口与 AI 系统安全</p></div>
+      <div class="chapter-body">
+        <div class="grid cols-4">
+          <div class="card"><div class="num">179.2k→463.7k</div><p class="caption">核心 AI 论文规模，2015–2024</p></div>
+          <div class="card"><h3>大模型进入“第二增长曲线”</h3><p>随着数据与算力接近缩放极限，研究转向推理阶段扩展、架构创新和软硬件协同，以提升参数效率与能耗效率。</p></div>
+          <div class="card"><h3>智能体成为新方向</h3><p>多智能体系统通过自主感知、任务规划、记忆系统与工具调用，提高任务执行和系统协同能力。</p></div>
+          <div class="card"><h3>安全从外部加固转向内生安全</h3><p>模型安全、对齐、可解释、评估和红线风险治理成为核心 AI 的关键议题。</p></div>
+        </div>
+        <div class="chapter-grid" style="margin-top:18px">
+          <div class="card"><h3>1. 大语言模型与自主智能体</h3><ul><li>知识增强：检索增强生成（RAG）让模型动态接入专业与最新知识，提升可靠性。</li><li>多模态融合：GPT-4o、Gemini 等通过视觉、语音与文本对齐拓展应用场景。</li><li>深度推理：o1/o3、DeepSeek R1 等以更长推理时间换取高质量回答，在数学、科学分析和复杂编程任务中表现突出。</li><li>未来挑战：推理效率、下一代缩放律、高效架构、全模态模型、情感认知、多智能体集体智能。</li></ul></div>
+          <div class="card"><h3>2. 具身智能</h3><ul><li>定义：基于物理身体的感知与行动系统，通过与环境交互完成感知、规划、决策和行为生成。</li><li>进展：VLA 模型将视觉与语言输入转化为机器人动作；RT-2、π0、Helix、Optimus、Mobile ALOHA、NEO Gamma 等推动机器人走向产业化和家庭化。</li><li>挑战：基础模型泛化、数据引擎、自然交互、硬件载体、可信机制和统一评测体系。</li></ul></div>
+          <div class="card"><h3>3. 脑机接口（BCI）</h3><ul><li>BCI 使脑活动与外部设备实时交互，促进神经信号与行为之间因果关系研究。</li><li>进展包括运动、语音、情绪和意识解码，闭环神经调控，以及脑脊接口帮助瘫痪患者部分恢复行走能力。</li><li>未来方向是将神经解码、调控、AI 自学习和虚拟智能体结合，形成沉浸式脑机系统。</li></ul></div>
+          <div class="card"><h3>4. AI 系统安全与安全性</h3><ul><li>风险贯穿数据采集、训练、推理与部署全生命周期，包括对抗样本、后门、幻觉、有害内容、越狱和提示注入。</li><li>需要从“外部加固”转向内生安全，结合可信计算、零信任框架、动态异构冗余架构和自动化动态评估。</li><li>前沿 AI 系统需要主动发现自复制、欺骗性行为等红线风险并建立治理框架。</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="math" class="chapter">
+      <div class="chapter-head"><h2>第三章｜AI for Mathematics：数学推动 AI 理论与算法创新</h2><p>数学既是 AI 基础理论的根基，也是优化、统计、科学计算与复杂系统研究的核心工具。</p></div>
+      <div class="chapter-body">
+        <div class="grid cols-3">
+          <div class="card"><div class="num">21.2k→41.2k</div><p class="caption">数学领域 AI 论文十年近乎翻倍</p></div>
+          <div class="card"><h3>理论基础</h3><p>函数空间、逼近理论、数值分析、图论、谱分析和动态系统理论共同解释深度学习模型的表达能力、稳定性、泛化能力与训练行为。</p></div>
+          <div class="card"><h3>关键词</h3><p>强化学习、循环神经网络、生成模型、扩散模型、非凸优化、启发式算法、随机梯度下降、混合精度算法。</p></div>
+        </div>
+        <table style="margin-top:18px">
+          <thead><tr><th>方向</th><th>中文译编</th><th>关键挑战</th></tr></thead>
+          <tbody>
+            <tr><td>数学理论</td><td>神经网络可通过函数空间、泛函逼近和动态系统来理解。扩散模型建立在概率论与随机过程基础上，残差网络可用线性代数和微分方程解释信息传递。</td><td>深度模型表达能力、泛化、稳定性和可解释性的统一理论仍不充分。</td></tr>
+            <tr><td>运筹优化</td><td>AI 与优化相互促进：强化学习可发现更快矩阵乘法算法，非凸优化、策略优化与随机优化支撑大模型训练和科学搜索。</td><td>大规模、高维、非凸、约束复杂场景下的收敛性与可验证性。</td></tr>
+            <tr><td>统计</td><td>统计学支撑不确定性建模、特征提取、模型评估与推断可靠性。扩散模型、GAN 和强化学习均需要更扎实的统计理论。</td><td>黑箱深度网络的收敛速率、生成模型分布估计、强化学习统计推断。</td></tr>
+            <tr><td>科学计算</td><td>深度学习与传统数值方法融合，将物理定律嵌入网络，提升流体、热传导、结构力学等问题的计算效率。</td><td>分布式通信效率、跨尺度数据融合、大规模优化稳定性、硬件架构协同。</td></tr>
+            <tr><td>复杂系统</td><td>AI 可用于非线性动力学、复杂网络、群体行为、系统演化和跨尺度机制建模。</td><td>需要在可解释性、因果机制、长期预测和跨尺度耦合方面突破。</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="physical" class="chapter">
+      <div class="chapter-head"><h2>第四章｜AI for Physical Sciences：物理、化学、材料与能源</h2><p>AI 正在改变计算物理、智能化学、材料发现和能源系统优化。</p></div>
+      <div class="chapter-body">
+        <div class="grid cols-3">
+          <div class="card"><div class="num">70.7k</div><p class="caption">2024 年物理科学 AI 论文总量</p></div>
+          <div class="card"><h3>研究焦点</h3><p>材料与电池技术是最突出的研究焦点，多尺度模型、符号回归、图神经网络和逆向设计受到高度重视。</p></div>
+          <div class="card"><h3>方法趋势</h3><p>物理信息深度学习将物理约束嵌入模型，推动 AI 与材料科学的更深层融合。</p></div>
+        </div>
+        <div class="chapter-grid" style="margin-top:18px">
+          <div class="card"><h3>AI for Physics</h3><p>物理研究长期依赖理论建模、实验验证和计算模拟。AI 在复杂系统建模、数据驱动模式识别、高效算法优化方面提供新工具。典型进展包括 DeepMind 的 GNoME 预测超过 200 万种潜在稳定晶体结构，以及用神经网络与强化学习改进量子、等离子体和材料物理研究。</p></div>
+          <div class="card"><h3>AI for Chemistry</h3><p>AI 与机器人化学家结合，可实现自动合成规划、实验执行与条件优化。势能面建模、分子结构设计、反应预测和化学知识表示成为关键方向。挑战包括模型效率、通用化学表示、化学专用推理与可解释性。</p></div>
+          <div class="card"><h3>AI for Materials</h3><p>AI 通过生成模型、图神经网络、主动学习和自动化实验室加速材料设计、性能预测与候选筛选。材料数据库质量、可合成性约束、可规模化生成，以及自动化实验闭环仍是关键瓶颈。</p></div>
+          <div class="card"><h3>AI for Energy</h3><p>AI 可用于能源材料、储能、电池、催化、聚变和能源系统优化。数据孤岛、模型黑箱、多目标优化、实验与模拟融合、安全评估是报告强调的五类挑战。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="life" class="chapter">
+      <div class="chapter-head"><h2>第五章｜AI for Life Sciences：从生物设计到智能医疗</h2><p>AI 正推动合成生物学、医学、神经科学、健康和进化研究进入数据驱动与模型驱动融合阶段。</p></div>
+      <div class="chapter-body">
+        <div class="grid cols-3">
+          <div class="card"><div class="num">120.7k</div><p class="caption">2024 年生命科学 AI 论文总量</p></div>
+          <div class="card"><h3>美国与欧盟长期领先，中国快速缩小差距</h3><p>到 2024 年，中国生命科学 AI 论文产出已接近美国与欧盟。</p></div>
+          <div class="card"><h3>重点领域</h3><p>神经科学、基因组学、健康、药物发现、高分辨率医学影像、蛋白质组学和多尺度生物系统建模。</p></div>
+        </div>
+        <div class="grid cols-3" style="margin-top:18px">
+          <div class="card"><h3>合成生物学</h3><p>AI 通过基因编辑、核酸疫苗、从头蛋白设计和生物制造，把合成生物学从“生物改造”推向“生物创造”。挑战在于复杂生物系统设计的可扩展性、定制化设计、生物分子集成电路等。</p></div>
+          <div class="card"><h3>医学</h3><p>医疗大语言模型与医学多模态大模型可支持诊断、影像理解、临床问答和辅助决策。核心问题是医学知识体系动态更新、证据链不足、可解释性、伦理与隐私风险。</p></div>
+          <div class="card"><h3>神经科学</h3><p>AI 可用于脑数据生成与解析、新型脑机接口、可解释脑模型、多尺度多模态脑图谱建设，促进神经机制理解和类脑智能发展。</p></div>
+          <div class="card"><h3>健康</h3><p>AI 在疾病诊断与预测、药物发现、个性化健康管理、公共卫生和疫情监测中发挥作用。报告提到，AI 设计药物进入临床研究，显示生成式药物发现的潜力。</p></div>
+          <div class="card"><h3>AI 驱动进化研究</h3><p>AI 可用于基因组分析、表型分析、进化模拟，以及对医疗、环境干预和人类进化影响的研究。</p></div>
+          <div class="card"><h3>治理重点</h3><p>生命科学 AI 面临研究偏差、进化干预风险、伦理治理框架、数据孤岛与隐私保护等挑战，需强调透明、可追溯与可审查。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="earth" class="chapter">
+      <div class="chapter-head"><h2>第六章｜AI for Earth & Environmental Sciences：天气、环境与生态</h2><p>AI 正提升天气预报精度、生态监测效率和环境系统建模能力。</p></div>
+      <div class="chapter-body">
+        <div class="grid cols-3">
+          <div class="card"><div class="num">9.2k→35.6k</div><p class="caption">地球与环境科学 AI 论文十年增长约四倍</p></div>
+          <div class="card"><h3>中国占据接近一半全球论文</h3><p>中国在该领域论文产出远超欧盟和美国；印度 2024 年超过美国。</p></div>
+          <div class="card"><h3>关键词</h3><p>气候变化、生态系统、生物多样性、随机森林、图像处理、多模态模型、物理约束、可解释模型。</p></div>
+        </div>
+        <div class="chapter-grid" style="margin-top:18px">
+          <div class="card"><h3>天气预报</h3><p>AI 天气模型与数值预报融合，推动端到端、多模态、高精度天气预测。GraphCast、Pangu、Fuxi 等模型显著提高中期和长期预报能力。挑战包括极端天气预测不足、过度依赖再分析数据、缺少物理约束、时空分辨率有限，以及缺乏大气—海洋—陆面耦合。</p></div>
+          <div class="card"><h3>环境科学</h3><p>AI 可处理多源异构环境数据，提升污染监测、遥感识别、风险评估和环境政策支持能力。未来需解决数据质量、可解释性、模型迁移和跨区域泛化问题。</p></div>
+          <div class="card"><h3>生态科学</h3><p>AI 支持物种分布研究、多源数据融合、生态模拟实验、知识引导机器学习和深度学习与机制模型结合。</p></div>
+          <div class="card"><h3>方向建议</h3><p>报告强调，应把科学知识融入模型、提升数据质量与可用性、加强跨尺度与跨区域建模，并建立可解释、可验证的生态 AI 框架。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="engineering" class="chapter">
+      <div class="chapter-head"><h2>第七章｜AI for Engineering：通信、遥感、微电子与空间信息</h2><p>AI 正嵌入下一代工程基础设施，推动系统韧性与生态可持续融合。</p></div>
+      <div class="chapter-body">
+        <div class="grid cols-3">
+          <div class="card"><div class="num">121.6k→343k</div><p class="caption">工程科学 AI 论文十年近三倍增长</p></div>
+          <div class="card"><h3>中国显著领先</h3><p>中国论文产出超过美国与欧盟；印度快速追赶并在 2024 年超过美国。</p></div>
+          <div class="card"><h3>关键领域</h3><p>无线通信、网络优化、半导体设计、遥感、大语言模型、联邦学习、语义通信、边缘智能与模型切分。</p></div>
+        </div>
+        <div class="grid cols-4" style="margin-top:18px">
+          <div class="card"><h3>AI for Communications</h3><p>AI 是 6G 与 F6G 架构的核心技术之一。AI 可让通信系统自优化，提升可靠性、降低时延、提高能效，并支持智慧城市、智能交通和远程医疗。</p></div>
+          <div class="card"><h3>AI for Remote Sensing</h3><p>遥感基础模型通过多时相、多模态数据进行预训练，可用于地表覆盖变化、目标检测、分割、变化检测等任务。视觉语言模型和物理启发扩散模型成为新方向。</p></div>
+          <div class="card"><h3>AI for Microelectronics</h3><p>AI 可支持下一代半导体材料发现、器件设计、工艺优化和电路结构生成。知识图谱、RAG、形式化验证和多智能体系统有望贯通材料—器件—工艺—电路全链条。</p></div>
+          <div class="card"><h3>AI for Space Information</h3><p>面向空天地一体网络，分割学习和分割推理可在空间端与地面端之间平衡计算、通信、隐私与效率。挑战包括动态环境适应和多维资源复杂优化。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="hss" class="chapter">
+      <div class="chapter-head"><h2>第八章｜AI for Humanities & Social Sciences：计算社会科学、数字人文与 AI 治理</h2><p>AI 正重塑社会系统分析、文化遗产研究与伦理治理框架。</p></div>
+      <div class="chapter-body">
+        <div class="grid cols-3">
+          <div class="card"><div class="num">37.1k→144.8k</div><p class="caption">人文社科 AI 论文十年近四倍增长</p></div>
+          <div class="card"><h3>中国 2022 年超过欧盟</h3><p>中国成为该领域论文规模最大贡献者；印度快速追赶并在 2024 年超过美国。</p></div>
+          <div class="card"><h3>关键词</h3><p>透明性、伦理治理、隐私保护、偏见减少、价值对齐、基于智能体的模型、多模态大模型、复杂系统。</p></div>
+        </div>
+        <div class="chapter-grid" style="margin-top:18px">
+          <div class="card"><h3>计算社会科学</h3><p>社会科学研究范式从经验定性、理论定量、机制模拟和大数据分析，进入由“数据与机制双引擎”驱动的第五阶段。生成式 AI 能完成舆情立场、虚假信息识别、情感分析等任务；基于智能体的模型可模拟复杂社会系统；预测能力也随模型复杂度提升而增强。</p></div>
+          <div class="card"><h3>数字与智能人文</h3><p>AI 与遥感可辅助考古遗址发现；NLP 与计算机视觉可从历史文本、地图和图像中提取多维信息；AI 可用于甲骨文修复、文字识别与古文字解释。生成式 AI、VR/AR 和数字孪生可重构历史场景，提升文化传播体验。</p></div>
+          <div class="card"><h3>AI 伦理与治理</h3><p>透明性、可解释性、隐私保护、算法偏见和失控风险是核心议题。未来需要强化价值对齐、公平性、问责机制、风险预警与可控治理。</p></div>
+          <div class="card"><h3>关键原则</h3><p>在人文与社会科学中，AI 应被视为辅助研究者提升分析、解释和推理效率的工具，而不是取代人类专家的深层理解与批判判断。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="policy" class="section">
+      <div class="section-title"><div><div class="kicker">Prospects & policies</div><h2>未来挑战、研究方向与政策框架</h2></div></div>
+      <div class="grid cols-3">
+        <div class="card"><span class="pill red">挑战一</span><h3>AI 模型从专用走向通用</h3><p>下一代缩放律、高效推理、神经网络数学基础、强化学习收敛机制、全模态统一建模和多智能体集体智能将决定 AI 系统能力边界。</p></div>
+        <div class="card"><span class="pill amber">挑战二</span><h3>跨学科融合重塑科学研究</h3><p>AI 正成为跨学科“超级连接器”，推动从微观分子到宏观生态系统的多尺度统一建模，并催生生物—信息—材料科学等交叉领域。</p></div>
+        <div class="card"><span class="pill green">挑战三</span><h3>建立 AI 的“刹车系统”</h3><p>医疗、具身智能等关键领域需要动态风险评估、隐私保护、可解释、公平、价值对齐和制度化治理，确保 AI 安全可控发展。</p></div>
+      </div>
+      <div class="highlight" style="margin-top:20px">
+        <h3>政策目标</h3>
+        <p>AI4S 政策应以加速科学创新、提升科研效率、解决复杂挑战为目标，建立开放共享、可信安全、协同创新、人才培养、长期资助和伦理治理并重的体系。</p>
+      </div>
+      <table style="margin-top:18px">
+        <thead><tr><th>政策措施</th><th>中文整理</th><th>适用主体</th></tr></thead>
+        <tbody>
+          <tr><td>数据共享</td><td>建设标准化科研数据共享平台，鼓励开放获取和跨学科数据整合，制定数据质量评价标准。</td><td>政府、科研机构、企业</td></tr>
+          <tr><td>安全与隐私保护</td><td>强化数据安全管理、访问控制和加密技术；涉及个人隐私和伦理敏感数据时建立合规审查机制。</td><td>监管部门、医院、科研平台、企业</td></tr>
+          <tr><td>算法发展</td><td>统筹基础算法与领域应用，推动关键算法开源共享、迭代优化和产学研协同攻关。</td><td>高校、国家实验室、技术企业</td></tr>
+          <tr><td>人才培养</td><td>完善 AI 与科学研究融合的交叉教育体系，开设 AI4S 课程和专项训练计划，培养复合型研究人员。</td><td>高校、科研院所、企业大学</td></tr>
+          <tr><td>资金支持</td><td>设立专项基金支持基础研究和应用研究，建立多层次长期资助机制，支持初创团队和科研转化。</td><td>科技部、财政部门、基金、产业资本</td></tr>
+          <tr><td>法律与伦理治理</td><td>制定 AI 使用伦理指南、明确责任结构，建立跨部门监管机制和透明监督体系。</td><td>政府、行业协会、机构伦理委员会</td></tr>
+        </tbody>
+      </table>
+      <div class="grid cols-3" style="margin-top:18px">
+        <div class="card"><h3>实施机制</h3><p>由政府部门负责政策制定与统筹，研究机构承担技术开发与应用示范，国家实验室和高校组建跨学科团队，企业推动产业化和商业化。</p></div>
+        <div class="card"><h3>组织结构</h3><p>建议建立国家级 AI4S 战略委员会，协调跨部门资源；地方层面设立推进小组；鼓励产学研用联盟形成开放创新网络。</p></div>
+        <div class="card"><h3>评估与调整</h3><p>通过监督机制、反馈机制和周期性评估，对政策执行效果、科研产出、数据共享质量、安全合规和转化成效进行动态调整。</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title"><div><div class="kicker">Appendix</div><h2>网页阅读说明</h2></div></div>
+      <div class="note">本页面为英文报告的中文译编与网页化整理版本，保留了原报告的主要结构、数据结论、技术逻辑和政策建议。为提升汇报可读性，原报告中的长段落、参考文献和图表说明已被整理为卡片、表格和重点提示框；具体文献出处与完整图表请以原始英文报告为准。</div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap small">AI for Science 2025｜中文网页报告｜适用于商业或学术汇报场景。页面为静态 HTML，可直接浏览、打印或嵌入汇报材料。</div>
+  </footer>
+</body>
+</html>
